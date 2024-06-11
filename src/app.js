@@ -69,8 +69,25 @@ app.get('/weather', (req, res)=>{
             }) 
           })
     })
-    
-     
+})
+
+app.get('/geocode', (req,res)=>{
+    const address = req.query.location;
+    if(!address){
+        return res.send({error})
+    }
+    console.log('evaluating geocode at server end..')
+    geocode(address, (error, {latitude, longitude, location})=>{
+        if(error){
+           return res.send('Error', error)
+        }
+       
+        res.send ({
+            location,
+            latitude,
+            longitude
+        })
+    })
 })
 
 app.get('/help/*', (req, res)=>{
@@ -84,7 +101,7 @@ app.get('/help/*', (req, res)=>{
 app.get('*', (req, res)=>{
     res.render('404',{
         title: '404',
-        errorMsg: 'Page not found',
+        errorMsg: 'Page not found here',
         name: 'Akash'
     })
 })

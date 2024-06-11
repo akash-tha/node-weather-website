@@ -10,16 +10,21 @@
        <div class="main-content">     
                {{>header}}
               <p> Get your weather info from here</p>
-          <form>
-               <input placeholder="Location">
+          <form id="weatherForm">
+               <input id="weatherFormInput" placeholder="Location">
                <button>Search</button>
           </form>
           <p id="message-1"></p>
           <p id="message-2"></p>
+          <p> Get your Geocode info from here</p>
+          <form id="geocodeForm">
+               <input id="geocodeFormInput" placeholder="Location">
+               <button>Search</button>
+          </form>
+          <p id="message-3"></p>
+          <p id="message-4"></p>
        </div>      
    {{>footer}}
-     
       <script src="/js/app.js"></script>
 </body>
-    
 </html>
